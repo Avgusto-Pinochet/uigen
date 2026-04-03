@@ -59,22 +59,20 @@ export function MainContent({ user, project }: MainContentProps) {
             <ResizablePanel defaultSize={65}>
               <div className="h-full flex flex-col bg-white">
                 {/* Top Bar */}
-                <div className="h-14 border-b border-neutral-200/60 px-6 flex items-center bg-neutral-50/50 relative">
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <Tabs
-                      value={activeView}
-                      onValueChange={(v) =>
-                        setActiveView(v as "preview" | "code")
-                      }
-                      className="pointer-events-auto"
-                    >
-                      <TabsList className="bg-white/60 border border-neutral-200/60 p-0.5 h-9 shadow-sm">
-                        <TabsTrigger value="preview" className="data-[state=active]:bg-white data-[state=active]:text-neutral-900 data-[state=active]:shadow-sm text-neutral-600 px-4 py-1.5 text-sm font-medium transition-all">Preview</TabsTrigger>
-                        <TabsTrigger value="code" className="data-[state=active]:bg-white data-[state=active]:text-neutral-900 data-[state=active]:shadow-sm text-neutral-600 px-4 py-1.5 text-sm font-medium transition-all">Code</TabsTrigger>
-                      </TabsList>
-                    </Tabs>
-                  </div>
-                  <div className="ml-auto">
+                <div className="h-14 border-b border-neutral-200/60 px-6 flex items-center bg-neutral-50/50">
+                  <div className="flex-1" />
+                  <Tabs
+                    value={activeView}
+                    onValueChange={(v) =>
+                      setActiveView(v as "preview" | "code")
+                    }
+                  >
+                    <TabsList className="bg-white/60 border border-neutral-200/60 p-0.5 h-9 shadow-sm">
+                      <TabsTrigger value="preview" className="data-[state=active]:bg-white data-[state=active]:text-neutral-900 data-[state=active]:shadow-sm text-neutral-600 px-4 py-1.5 text-sm font-medium transition-all">Preview</TabsTrigger>
+                      <TabsTrigger value="code" className="data-[state=active]:bg-white data-[state=active]:text-neutral-900 data-[state=active]:shadow-sm text-neutral-600 px-4 py-1.5 text-sm font-medium transition-all">Code</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                  <div className="flex-1 flex justify-end">
                     <HeaderActions user={user} projectId={project?.id} />
                   </div>
                 </div>
